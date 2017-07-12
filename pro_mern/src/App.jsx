@@ -56,14 +56,6 @@ class IssueTable extends React.Component {
   };
 }
 
-class IssueAdd extends React.Component {
-  render() {
-    return (
-      <div>This is a placeholder for the issue add.</div>
-    );
-  };
-}
-
 const issues = [
   {
     id: 1, status: 'Open', owner: 'Ravan',
@@ -78,16 +70,44 @@ const issues = [
 ];
 
 class IssueList extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {issues: issues};
+    setTimeout(this.createTestIssue.bind(this), 2000);
+  }
+
+  createIssue(newIssue) {
+    const newIssues = this.state.issues.slice();
+    newIssue.id = this.state.issues.length + 1;
+    newIssues.push(newIssue);
+    this.setState({issues: newIssues});
+  }
+
+  createTestIssue() {
+    this.createIssue({status:'New', owner: 'Osmo', created: new Date(),
+      effort: 100, title: "Completion date should be optional",
+    });
+  }
+
   render() {
     return(
       <div>
         <h1>Issue Tracker</h1>
         <IssueFilter />
         <hr />
-        <IssueTable issues={issues} />
+        <IssueTable issues={this.state.issues} />
         <hr />
         <IssueAdd />
       </div>
+    );
+  };
+}
+
+class IssueAdd extends React.Component {
+  render() {
+    return (
+      <div>This is a placeholder for the issue add.</div>
     );
   };
 }
