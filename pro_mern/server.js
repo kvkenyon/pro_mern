@@ -32,12 +32,13 @@ const issueFieldType = {
   status: 'required',
   owner: 'required',
   effort: 'optional',
+  created: 'required',
   completionDate: 'optional',
   title: 'required',
 };
 
 function validateIssue(issue) {
-  for (field in issueFieldType) {
+  for (field in issue) {
     type = issueFieldType[field];
     if (!type) {
       delete issue[field];
