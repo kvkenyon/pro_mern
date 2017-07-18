@@ -1,3 +1,8 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 // ----------------------
 // Server-side validation
 // ----------------------
@@ -7,7 +12,7 @@ const validIssueStatus = {
   Assigned: true,
   Fixed: true,
   Verified: true,
-  Closed: true,
+  Closed: true
 };
 
 const issueFieldType = {
@@ -16,7 +21,7 @@ const issueFieldType = {
   effort: 'optional',
   created: 'required',
   completionDate: 'optional',
-  title: 'required',
+  title: 'required'
 };
 
 function validateIssue(issue) {
@@ -38,6 +43,7 @@ function validateIssue(issue) {
   return null;
 }
 
-export default {
-  validateIssue,
+exports.default = {
+  validateIssue: validateIssue
 };
+//# sourceMappingURL=issue.js.map

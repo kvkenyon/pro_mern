@@ -8,13 +8,13 @@ export default class IssueAdd extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    var form = document.forms.issueAdd;
+    const form = document.forms.issueAdd;
     this.props.createIssue({
       owner: form.owner.value,
       title: form.title.value,
       status: 'New',
       created: new Date(),
-      effort: form.effort.value
+      effort: form.effort.value,
     });
     form.owner.value = '';
     form.title.value = '';
@@ -32,6 +32,5 @@ export default class IssueAdd extends React.Component {
         </form>
       </div>
     );
-  };
+  }
 }
-
