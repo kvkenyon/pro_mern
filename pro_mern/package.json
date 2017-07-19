@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack",
     "watch": "webpack-dev-server --hot --inline",
-    "start": "nodemon -w dist/server dist/server.js",
+    "start": "nodemon -w dist dist/server.js",
     "compile-server": "babel server --presets es2015-node4 --out-dir dist --source-maps",
     "watch-server": "babel server --presets es2015-node4 --out-dir dist --source-maps --watch",
     "start-hook": "nodemon -w server server/start_hook.js",
@@ -25,7 +25,8 @@
     "source-map-support": "^0.4.15",
     "babel-register": "^6.24.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -41,7 +42,6 @@
     "eslint-plugin-react": "^7.1.0",
     "nodemon": "^1.11.0",
     "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1",
-    "whatwg-fetch": "^2.0.3"
+    "webpack-dev-server": "^2.5.1"
   }
 }
