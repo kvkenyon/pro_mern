@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext js,jsx src server webpack.config.js",
     "compile": "webpack",
     "watch": "webpack-dev-server --hot --inline",
     "start": "nodemon -w dist dist/server.js",
@@ -18,14 +19,15 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.24.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongodb": "^2.2.30",
     "path.join": "^1.0.0",
-    "source-map-support": "^0.4.15",
-    "babel-register": "^6.24.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "source-map-support": "^0.4.15",
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {

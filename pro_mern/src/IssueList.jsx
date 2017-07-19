@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'whatwg-fetch';
-import IssueAdd from './IssueAdd.jsx';
-import IssueFilter from './IssueFilter.jsx';
+import IssueAdd from './IssueAdd';
+import IssueFilter from './IssueFilter';
 
-const IssueRow = (props) => (
+const IssueRow = props => (
   <tr>
     <td>{props.issue._id}</td>
     <td>{props.issue.status}</td>
@@ -14,6 +15,18 @@ const IssueRow = (props) => (
     <td>{props.issue.title}</td>
   </tr>
 );
+
+IssueRow.propTypes = {
+  issue: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    owner: PropTypes.string.isRequired,
+    created: PropTypes.instanceOf(Date),
+    effort: PropTypes.number,
+    completionDate: PropTypes.instanceOf(Date),
+  }).isRequired,
+};
 
 function IssueTable(props) {
   const issueRows = props.issues.map(issue => <IssueRow key={issue._id} issue={issue} />);
@@ -34,6 +47,10 @@ function IssueTable(props) {
     </table>
   );
 }
+
+IssueTable.propTypes = {
+  issues: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default class IssueList extends React.Component {
 

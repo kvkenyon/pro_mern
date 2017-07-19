@@ -32,4 +32,7 @@ module.exports = {
     },
   },
   devtool: 'source-map',
+  resolve: {
+    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json'],
+  },
 };
