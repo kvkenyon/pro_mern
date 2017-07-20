@@ -4,7 +4,8 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     app: ['./src/App.jsx'],
-    vendor: ['react', 'react-dom', 'whatwg-fetch'],
+    vendor: ['react', 'react-dom',
+      'whatwg-fetch', 'prop-types', 'react-router'],
   },
   output: {
     path: joinPath(__dirname, '/static'),
